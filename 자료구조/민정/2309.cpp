@@ -19,7 +19,7 @@ void writeHeight(int array[9]) {
 }
 
 void searchNoDwarf(int array[], int sum2, int &index1, int &index2) {
-    int temp_sum2;
+    int temp_sum2 = 0;
 
     for (int i = 0; i < 8; i++) {
         for (int j = i + 1; j < 9; j++) {
@@ -37,8 +37,8 @@ int main(void) {
 
     int height_array[9];        // 9명의 키 배열
     int height_dwarf_array[7];  // 난쟁이의 키 배열
-    int height_sum9;            // 9명의 키 합
-    int sum_no_dwarf;           // 난쟁이가 아닌 2명의 키 합
+    int height_sum9 = 0;            // 9명의 키 합
+    int sum_no_dwarf = 0;           // 난쟁이가 아닌 2명의 키 합
 
     writeHeight(height_array);
     
