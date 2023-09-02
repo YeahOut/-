@@ -47,6 +47,18 @@ bool enableMakeTarget(int current_array[], int target_array[], int& switch_resul
 
 }
 
+int searchMin(int result1, int result2) {
+
+    if (result1 != -1 && result2 != -1) {
+        return min(result1, result2);
+    } else if (result1 == -1 && result2 == -1){
+        return -1;
+    } else {
+        return (result1 > 0) ? result1 : result2;
+    }
+}
+
+
 int main(void) {
 
     cin >> N;
@@ -67,7 +79,7 @@ int main(void) {
 
 // 0번 인덱스 스위치 안 누른 경우
    if (enableMakeTarget(first_bulb_arr, end_bulb_arr, switch_first_off)) {
-        if (switch_first_off != -1) cout << endl << "결과1: " << switch_first_off;
+        // if (switch_first_off != -1) cout << endl << "결과1: " << switch_first_off;
         // if (switch_result != -1) switch_first_off = switch_result;
    }
 
@@ -76,8 +88,9 @@ int main(void) {
    pushSwitch(re_first_bulb_arr, 0);
    if (enableMakeTarget(re_first_bulb_arr, end_bulb_arr, switch_first_on)) {
         switch_first_on++;
-        if (switch_first_on != -1) cout << endl << "결과2: " << switch_first_on << endl;
+        // if (switch_first_on != -1) cout << endl << "결과2: " << switch_first_on << endl;
         // if (switch_result != -1) switch_first_on = switch_result;
    }
 
+   cout << searchMin(switch_first_off, switch_first_on) ;
 }
