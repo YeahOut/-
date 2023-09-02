@@ -10,8 +10,8 @@
 
 using namespace std;
 
-int N = 0;
-int switch_result = 0;
+int N = 0;              // 전등 개수
+int switch_result = 0;  // 스위치 입력 횟수
 
 void pushSwitch(int array[], int index) {
 
@@ -52,10 +52,11 @@ int searchMin(int result1, int result2) {
     if (result1 != -1 && result2 != -1) {
         return min(result1, result2);
     } else if (result1 == -1 && result2 == -1){
-        return -1;
+        return -1;  // 불가능할 경우 -1 출력
     } else {
         return (result1 > 0) ? result1 : result2;
     }
+
 }
 
 
@@ -63,8 +64,8 @@ int main(void) {
 
     cin >> N;
     char temp_first_arr[N], temp_end_arr[N];    
-    int first_bulb_arr[N], re_first_bulb_arr[N], end_bulb_arr[N]; // 스위치 배열
-    int switch_first_off, switch_first_on;
+    int first_bulb_arr[N], re_first_bulb_arr[N], end_bulb_arr[N];   // 전구 배열
+    int switch_first_off, switch_first_on;                          // 0번 전구 누를/안 누를 경우 스위치 횟수
 
 
     for (int i = 0; i < N; i++) {
@@ -77,19 +78,14 @@ int main(void) {
         end_bulb_arr[i] = temp_end_arr[i] - '0';
     }
 
-// 0번 인덱스 스위치 안 누른 경우
-   if (enableMakeTarget(first_bulb_arr, end_bulb_arr, switch_first_off)) {
-        // if (switch_first_off != -1) cout << endl << "결과1: " << switch_first_off;
-        // if (switch_result != -1) switch_first_off = switch_result;
-   }
+    // 0번 인덱스 스위치 안 누른 경우
+    enableMakeTarget(first_bulb_arr, end_bulb_arr, switch_first_off);
 
 
    // 0번 인덱스 스위치 누른 경우
    pushSwitch(re_first_bulb_arr, 0);
    if (enableMakeTarget(re_first_bulb_arr, end_bulb_arr, switch_first_on)) {
         switch_first_on++;
-        // if (switch_first_on != -1) cout << endl << "결과2: " << switch_first_on << endl;
-        // if (switch_result != -1) switch_first_on = switch_result;
    }
 
    cout << searchMin(switch_first_off, switch_first_on) ;
