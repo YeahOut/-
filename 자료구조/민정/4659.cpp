@@ -26,8 +26,13 @@ void rule2() {
 }
 
 // 조건 3: 같은 글자 연속 안 됨 (단, ee와 oo는 허용)
-void rule3() {
-
+bool rule3(string s) {
+    for (int i = 0; i < s.length() - 1; i++) {
+        if (s[i] == s[i + 1] && s[i] != 'e' && s[i] != 'o') {
+            return false;
+        }
+    }
+    return true;
 }
 
 int main(void) {
@@ -39,7 +44,7 @@ int main(void) {
 
         if (cmd == "end") break;
 
-        if (rule1(cmd)) cout << cmd << ": " << rule1(cmd) << endl;   
+        if (rule3(cmd)) cout << cmd << ": " << rule3(cmd) << endl;   
         
     }
 }
