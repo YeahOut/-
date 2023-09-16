@@ -8,8 +8,18 @@
 
 using namespace std;
 
-void searchDifferentBall() {
+int ball_num;
 
+void searchDifferentBall(char array[], char right) {
+    for (int i = ball_num - 2; i >= 0; i--) {
+        if (array[i] != right) continue;
+        else {
+            if (array[i] == right && array[i + 1] != right) {
+                // cout << endl;
+                // cout << "여기 같은: " << i << endl;
+            }
+        }
+    }
 }
 
 void changeBall() {
@@ -17,7 +27,7 @@ void changeBall() {
 }
 
 int main(void) {
-    int ball_num;
+    // int ball_num;
     string cmd;
     
 
@@ -33,4 +43,6 @@ int main(void) {
 
     // cout << endl;
     // cout << "ri: " << rightMostBall;
+
+    searchDifferentBall(ball_array, rightMostBall);
 }
