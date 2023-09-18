@@ -2,7 +2,7 @@
 // 20365 블로그2
 // 
 //
-// R과 B의 각각 연속된 갯수를 구함 -> 갯수가 더 많은 색으로 모든 블로그를 칠함 -> + 칠하지 않은 색의 연속된 갯수
+// R과 B의 각각 연속된 수를 구함 -> 수가 더 많은 색으로 모든 블로그를 칠함 -> 칠하지 않은 색의 연속된 수 + 처음에 모두 칠한 횟수 1
 // minjeong
 // ----------------
 
@@ -29,6 +29,7 @@ int countBlog(char array[], char color, int arr_num, int color_num) {
 
 int main(void) {
     int blog_num, r_num = 0, b_num = 0;
+    int min, work_num;
     string blog;
     char R = 'R';
     char B = 'B';
@@ -44,7 +45,8 @@ int main(void) {
     r_num = countBlog(blog_arr, R, blog_num, r_num);
     b_num = countBlog(blog_arr, B, blog_num, b_num);
 
-    cout << endl;
-    cout << "R 개수: " << r_num << endl;
-    cout << "B 개수: " << b_num << endl;
+    min = (r_num < b_num) ? r_num : b_num;
+    work_num = min + 1;
+    
+    cout << work_num;
 }
